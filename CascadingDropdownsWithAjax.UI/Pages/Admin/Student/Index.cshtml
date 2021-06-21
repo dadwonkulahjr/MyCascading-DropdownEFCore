@@ -3,28 +3,71 @@
 @{
     ViewData["Title"] = "List Of Students";
 }
-
-<div class="border backgroundWhite container shadow mt-5">
+<div class="border backgroundWhite container shadow">
     <div class="row">
         <div class="col-6">
             <h2 class="text-success">Student List</h2>
         </div>
+
+        <div class="col-6 text-right mt-1">
+            <a href="#" class="btn btn-outline-success"><i class="fas fa-plus">&nbsp;Create New</i></a>
+        </div>
     </div>
     <br /><br />
-    <h4>Students</h4>
-    <select asp-for="StudentId" asp-items="Model.Students" class="custom-select">
+    <table id="DT_load" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+   @* <script src="~/js/category.js"></script>*@
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="border backgroundWhite container shadow mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-success">Student List</h2>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-12">
+           <h4>Students</h4>-->
+@*<select asp-for="StudentId" asp-items="Model.Students" class="custom-select">
         <option value="">Select Student</option>
     </select>
     <h4>Courses</h4>
-    <select asp-for="CourseId" class="custom-select"></select>
-</div>
+    <select asp-for="CourseId" class="custom-select"></select>*@
+<!--</div>
+   </div>
+    <br />
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-success">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+@*@section Scripts{
 
-
-
-
-
-
-@section Scripts{
-
-    <script src="~/js/student.js"></script>
-}
+        <script src="~/js/student.js"></script>
+    }*@

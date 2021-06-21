@@ -13,6 +13,12 @@ namespace CascadingDropdownsWithAjax.UI.Implementations
         {
             _applicationDbContext = applicationDbContext;
         }
+
+        public void AddStudent(Student newStudent)
+        {
+            _applicationDbContext.Student.Add(newStudent);
+        }
+
         public IEnumerable<Course> GetCourses(int studentId)
         {
             return _applicationDbContext.Course.Where(c => c.StudentId == studentId);

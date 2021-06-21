@@ -7,6 +7,6 @@ namespace CascadingDropdownsWithAjax.UI.Services
     {
         IEnumerable<Student> GetStudents();
         IEnumerable<Course> GetCourses(int studentId);
-
+        void AddStudent(Student newStudent);
     }
 }
