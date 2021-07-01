@@ -1,0 +1,84 @@
+﻿@page
+@model CascadingDropdownsWithAjax.UI.Pages.Admin.Student.UpsertModel
+@{
+    if (Model.StudentObj.Id != 0)
+    {
+        ViewData["Title"] = "Update new student";
+    }
+    else
+    {
+        ViewData["Title"] = "Create new student";
+    }
+}
+
+<form method="post" asp-page="upsert">
+    <div class="container">
+
+        @if (Model.StudentObj.Id != 0)
+        {
+            <input type="hidden" asp-for="@Model.StudentObj.Id" />
+        }
+        <div class="row px-2 mx-2 backgroundWhite border shadow">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="col-12 px-3" style="border-bottom:1px solid #325d88">
+                <h2 class="text-success">@(Model.StudentObj.Id != 0 ? "Update student" : "Create new student")</h2>
+            </div>
+
+            <div class="col-8 pt-3">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="StudentObj.FirstName"></label>
+                    </div>
+                    <div class="col-9">
+                        <input asp-for="StudentObj.FirstName" class="form-control" placeholder="First name..." />
+                        <span asp-validation-for="StudentObj.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="StudentObj.LastName"></label>
+                    </div>
+                    <div class="col-9">
+                        <input asp-for="StudentObj.LastName" class="form-control" placeholder="Last name..." />
+                        <span asp-validation-for="StudentObj.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="StudentObj.Email"></label>
+                    </div>
+                    <div class="col-9">
+                        <input asp-for="StudentObj.Email" class="form-control" placeholder="Email..." />
+                        <span asp-validation-for="StudentObj.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-9 offset-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary form-control">
+                                    @(Model.StudentObj.Id != 0 ? "Update student" : "Create new student")
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <a asp-page="./Index" class="btn btn-success form-control">Back To List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+
+}

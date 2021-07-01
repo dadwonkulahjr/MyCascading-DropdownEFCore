@@ -10,26 +10,26 @@
         </div>
 
         <div class="col-6 text-right mt-1">
-            <a href="#" class="btn btn-outline-success"><i class="fas fa-plus">&nbsp;Create New</i></a>
+            <a asp-page="/Admin/Student/Upsert" class="btn btn-outline-success"><i class="fas fa-plus">&nbsp;Create New</i></a>
         </div>
     </div>
     <br /><br />
-    <table id="DT_load" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Course</th>
-                <th></th>
-            </tr>
-        </thead>
-    </table>
+          <div class="table-responsive">
+              <table id="DT_load" class="table table-striped" style="width:100%">
+                  <thead>
+                      <tr>
+                          <th>First name</th>
+                          <th>Last name</th>
+                          <th>Email</th>
+                          <th></th>
+                      </tr>
+                  </thead>
+              </table>
+          </div>
 </div>
 
 @section Scripts{
-   @* <script src="~/js/category.js"></script>*@
-    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/studentAndcourse.js"></script>
 }
 
 

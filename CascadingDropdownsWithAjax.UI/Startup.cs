@@ -30,13 +30,21 @@ namespace CascadingDropdownsWithAjax.UI
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
-            services.AddScoped<IStudentRepository, StudentContextRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.Configure<RouteOptions>(options =>
             {
                 options.AppendTrailingSlash = true;
                 options.LowercaseQueryStrings = true;
                 options.LowercaseUrls = true;
             });
+
+            services.AddControllersWithViews();
+            services.AddOpenApiDocument(options =>
+            {
+                options.Title = "CascadingDropdownsWithAjax Testing Api Service!";
+            });
+
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -55,6 +63,10 @@ namespace CascadingDropdownsWithAjax.UI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -62,6 +74,8 @@ namespace CascadingDropdownsWithAjax.UI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute
+                    (name: "default",pattern:"{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

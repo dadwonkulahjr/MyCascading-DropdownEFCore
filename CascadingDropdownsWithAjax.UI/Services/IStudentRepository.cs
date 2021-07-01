@@ -1,12 +1,12 @@
 ﻿using CascadingDropdownsWithAjax.UI.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
 namespace CascadingDropdownsWithAjax.UI.Services
 {
-    public interface IStudentRepository
+    public interface ICourseRepository : IDefaultRepository<Course>
     {
-        IEnumerable<Student> GetStudents();
-        IEnumerable<Course> GetCourses(int studentId);
-        void AddStudent(Student newStudent);
+        IEnumerable<SelectListItem> GetDropdownListForCourses();
+        void Update(Course courseToUpdate);
     }
 }

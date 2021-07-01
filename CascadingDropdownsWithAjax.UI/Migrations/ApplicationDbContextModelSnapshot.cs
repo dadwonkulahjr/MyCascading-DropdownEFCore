@@ -21,110 +21,157 @@ namespace CascadingDropdownsWithAjax.UI.Migrations
 
             modelBuilder.Entity("CascadingDropdownsWithAjax.UI.Models.Course", b =>
                 {
-                    b.Property<int>("CourseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CourseName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("CourseNumber")
+                        .HasColumnType("int");
 
                     b.Property<int>("CreditHours")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Cr. Hrs");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CourseId");
+                    b.HasKey("Id");
 
                     b.ToTable("Course");
 
                     b.HasData(
                         new
                         {
-                            CourseId = 1,
-                            CourseName = "Razor Pages",
-                            CreditHours = 4,
-                            StudentId = 1
+                            Id = 1,
+                            CourseName = "Computer Fundamental",
+                            CourseNumber = 101,
+                            CreditHours = 4
                         },
                         new
                         {
-                            CourseId = 2,
-                            CourseName = "Database Fundamentals",
-                            CreditHours = 5,
-                            StudentId = 1
+                            Id = 2,
+                            CourseName = "Mathematics",
+                            CourseNumber = 107,
+                            CreditHours = 4
                         },
                         new
                         {
-                            CourseId = 3,
-                            CourseName = "Software Development Fundamentals",
-                            CreditHours = 4,
-                            StudentId = 2
+                            Id = 3,
+                            CourseName = "English",
+                            CourseNumber = 101,
+                            CreditHours = 3
                         },
                         new
                         {
-                            CourseId = 4,
-                            CourseName = "MVC",
-                            CreditHours = 8,
-                            StudentId = 3
+                            Id = 4,
+                            CourseName = "Desktop Management",
+                            CourseNumber = 102,
+                            CreditHours = 4
                         },
                         new
                         {
-                            CourseId = 5,
+                            Id = 5,
+                            CourseName = "Server Fundamental (MTA)",
+                            CourseNumber = 201,
+                            CreditHours = 4
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseName = "Security Fundamental",
+                            CourseNumber = 201,
+                            CreditHours = 4
+                        },
+                        new
+                        {
+                            Id = 7,
                             CourseName = "EFCore",
-                            CreditHours = 5,
-                            StudentId = 2
+                            CourseNumber = 202,
+                            CreditHours = 8
                         },
                         new
                         {
-                            CourseId = 6,
+                            Id = 8,
+                            CourseName = "Database Development",
+                            CourseNumber = 302,
+                            CreditHours = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CourseName = "MVC",
+                            CourseNumber = 302,
+                            CreditHours = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CourseName = "Razor Pages",
+                            CourseNumber = 402,
+                            CreditHours = 7
+                        },
+                        new
+                        {
+                            Id = 11,
                             CourseName = "Web Development",
-                            CreditHours = 3,
-                            StudentId = 3
+                            CourseNumber = 402,
+                            CreditHours = 6
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CourseName = "Software Development",
+                            CourseNumber = 402,
+                            CreditHours = 11
                         });
                 });
 
             modelBuilder.Entity("CascadingDropdownsWithAjax.UI.Models.Student", b =>
                 {
-                    b.Property<int>("StudentId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Student Email");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
-                    b.HasKey("StudentId");
+                    b.HasKey("Id");
 
                     b.ToTable("Student");
 
                     b.HasData(
                         new
                         {
-                            StudentId = 1,
+                            Id = 1,
                             Email = "mike@m.com",
                             FirstName = "Mike",
                             LastName = "Smith"
                         },
                         new
                         {
-                            StudentId = 2,
+                            Id = 2,
                             Email = "tom@m.com",
                             FirstName = "Tom",
                             LastName = "Hasting"
                         },
                         new
                         {
-                            StudentId = 3,
-                            Email = "mike@m.com",
-                            FirstName = "Mike",
-                            LastName = "Smith"
+                            Id = 3,
+                            Email = "iamtuse@t.com",
+                            FirstName = "iamtuse",
+                            LastName = "theProgrammer"
                         });
                 });
 
